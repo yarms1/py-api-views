@@ -4,7 +4,7 @@ from rest_framework.validators import UniqueValidator
 from cinema.models import Movie, Genre, Actor, CinemaHall
 
 
-class GenreSerializer(serializers.ModelSerializer):
+class GenreSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(
         max_length=100,
@@ -23,7 +23,7 @@ class GenreSerializer(serializers.ModelSerializer):
         return instance
 
 
-class ActorSerializer(serializers.ModelSerializer):
+class ActorSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     first_name = serializers.CharField(max_length=100)
     last_name = serializers.CharField(max_length=100)
@@ -38,7 +38,7 @@ class ActorSerializer(serializers.ModelSerializer):
         return instance
 
 
-class CinemaHallSerializer(serializers.ModelSerializer):
+class CinemaHallSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(max_length=100)
     rows = serializers.IntegerField(min_value=1)
@@ -54,7 +54,7 @@ class CinemaHallSerializer(serializers.ModelSerializer):
         return instance
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class MovieSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     title = serializers.CharField(max_length=255)
     description = serializers.CharField()
